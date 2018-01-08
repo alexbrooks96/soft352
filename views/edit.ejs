@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Finance manager homepage</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="jumbotron text-center">
+		<h1>Finance Tracker</h1>
+		<p>Keep track of your finances</p> 
+		<p><a href="/profile">Back to my profile</a></p>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>Edit profile</h3>
+				<p>Change up your profile</p>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+						<form action="/editUser" method="post">
+						<input type="hidden" name="_id" value="<%= user._id %>">
+
+								<div class="row form-group input_group">
+									<div class="col-sm-12">
+										Name <input type="text" id="fullname" class="form-control" name="fullname" value="<%= user.fullname %>"/>
+									</div>
+								</div>
+
+								<div class="row form-group input_group">
+									<div class="col-sm-12">
+										Email <input type="text" id="email" class="form-control" name="email" value="<%= user.email %>"/>
+									</div>
+								</div>
+
+								<div class="row form-group input_group">
+									<div class="col-sm-12">
+										Target <input type="number" id="target" class="form-control" name="target" value="<%= user.target %>" step="0.01"/>
+									</div>
+								</div>
+
+								<div class="row form-group input_group">	
+									<div class="col-sm-12">
+										<input type="submit" id="edit" class="form-control btn btn-primary" name="edit" value="Save changes"/>
+
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+
+
+</html>

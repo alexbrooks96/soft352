@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>login</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/custom.css">
+
+</head>
+
+<body>
+
+		<div class="jumbotron text-center">
+			<h2><span>Login</span></h2>
+		</div>
+
+		<div class="container">
+		  <div class="row">
+		    <div class="col-sm-6">
+		      <h3>Sign in</h3>
+		      <form action="/login" method="post">
+
+		      	<div class="row form-group input_group">
+		      		<div class="col-sm-12">
+		      		<p style="color:red"><span><%= loginError %></span></p>
+		      			<input type="text" name="email" id="login_email" class="form-control" placeholder="Email">
+		      		</div>
+		      	</div>
+
+		      	<div class="row form-group input_group">
+		      		<div class="col-sm-12">
+		      		<p style="color:red"><span><%= passwordError %></span></p>
+		      			<input type="password" name="password" id="password" class="form-control" placeholder="password">
+		      		</div>
+		      	</div>
+
+		      	<div class="row form-group">
+		      		<div class="col-sm-12">
+		      			<input type="submit" name="login" id="login" class="form-control btn btn-primary" value="Login">
+		      		</div>
+		      	</div>
+		      </form>
+		    </div>
+		    <div class="col-sm-6">
+		      <h3>New user?</h3>
+		      <p>If you are a new user, click here to sign up for an account</p>
+		      <p><a href="/signup"> New user? Sign up></a></p>
+		    </div>
+		  </div>
+		</div>
+
+
+<script src="https://cdjns.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdjns.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

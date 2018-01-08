@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Finance manager homepage</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="jumbotron text-center">
+		<h1>Finance Tracker</h1>
+		<p>Keep track of your finances</p> 
+		<p><a href="/profile">Back to my profile</a></p>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>Decrease balance</h3>
+				<p>Please input how much money you would like to take to the budget.</p>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+						<form action="/decreaseBal" method="post">
+						<input type="hidden" name="_id" value="<%= user._id %>">
+								<div class="row form-group input_group">
+									<div class="col-sm-12">
+										Current Balance = <input type="number" id="value1" class="form-control" name="value1" value="<%= user.balance %>" step="0.01"  disabled/>
+									</div>
+								</div>
+								<div class="row form-group input_group">
+									<div class="col-sm-12">
+										Decrease Value = <input type="number" id="value2" name="value2" class="form-control" placeholder="Increase value" step="0.01"  />
+									</div>
+								</div>
+								<div class="row form-group input_group">	
+									<div class="col-sm-12">
+										<input type="submit" id="decrease" class="form-control btn btn-primary" name="decrease" value="Remove from budget" onclick="addNumbers()"/>
+										<!-- <button type="submit">Submit</button> -->
+									</div>
+								</div>
+								<div class="row form-group input_group">
+									<div class="col-sm-12">
+										Answer = <input type="number" id="newBalance" name="newBalance" class="form-control" value="£" step="0.01" disabled />
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script>
+
+				function addNumbers()
+				{
+					var val1 = parseFloat(document.getElementById("value1").value);
+					var val2 = parseFloat(document.getElementById("value2").value);
+					var newBal = document.getElementById("newBalance");
+					newBal.value = val1 - val2;
+					return newBal;
+				}
+			</script>
+
+
+
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+
+
+</html>

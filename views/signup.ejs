@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign up</title>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="/css/custom.css">
+
+</head>
+
+<body>
+	<div class="jumbotron text-center">
+		<h2><span>Sign up</span></h2>
+	</div>
+
+	<span><%= msgError %></span>
+
+
+	<div class="container">
+		<div class="row">
+		<div class="col-sm-8">
+				<h3>New user?</h3>
+				<form action="signup" method="post">
+
+					<div class="row form-group input_group">
+						<div class="col-sm-12">
+							<input type="text" name="name" id="fullname" class="form-control" placeholder="Full name">
+						</div>
+					</div>
+
+					<div class="row form-group input_group">
+						<div class="col-sm-12">
+							<input type="text" name="email" id="email" class="form-control" placeholder="Email">
+						</div>
+					</div>
+
+					<div class="row form-group input_group">
+						<div class="col-sm-12">
+							<input type="password" name="password" id="password" class="form-control" placeholder="Password">
+						</div>
+					</div>
+
+					<div class="row form-group input_group">
+						<div class="col-sm-12">
+							<input type="text" name="balance" id="balance" class="form-control" placeholder="Balance">
+						</div>
+					</div>
+
+					<div class="row form-group input_group">
+						<div class="col-sm-12">
+							<input type="text" name="target" id="target" class="form-control" placeholder="Target">
+						</div>
+					</div>
+
+					<div class="row form-group">
+						<div class="col-sm-12">
+							<input type="submit" name="submit" id="sign_up" class="form-control btn btn-primary" value="SIGN UP">
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="col-sm-4">
+				<h3>Already have an account?</h3>
+				<p>If you already have an account, click here to log in</p>
+				<p><a href="/login"> Existing user? Sign in></a></p>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdjns.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdjns.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
