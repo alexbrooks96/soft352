@@ -18,7 +18,11 @@
 		<div class="row">
 			<div class="col-sm-12">
 
-			<p><%= user.history %></p>
+			<ul>
+    			<% user.history.forEach(function(userHistory) { %>
+        			<li><%= userHistory.currBal %> - <%= userHistory.timestamp %></li>
+    			<% }); %>
+			</ul>
 
 			</div>
 		</div>
