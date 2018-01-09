@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title>Finance manager homepage</title>
+<title>Finance Tracker decrease balance</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
@@ -10,8 +10,8 @@
 <body>
 
 	<div class="jumbotron text-center">
-		<h1>Finance Tracker</h1>
-		<p>Keep track of your finances</p> 
+		<h1>Finance Tracker decrease balance</h1>
+		<h3>Welcome <%= user.fullname %></h3><%= user.email %> <a href="/logout"> logout</a> 
 		<p><a href="/profile">Back to my profile</a></p>
 	</div>
 
@@ -37,7 +37,7 @@
 								</div>
 								<div class="row form-group input_group">	
 									<div class="col-sm-12">
-										<input type="submit" id="decrease" class="form-control btn btn-primary" name="decrease" value="Remove from budget" onclick="addNumbers(), decreaseConfirm()"/>
+										<input type="submit" id="decrease" class="form-control btn btn-primary" name="decrease" value="Remove from balance" onclick="addNumbers(), decreaseConfirm()"/>
 									</div>
 								</div>
 								<div class="row form-group input_group" hidden="true">

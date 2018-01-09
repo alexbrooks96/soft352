@@ -3,24 +3,26 @@
 <head>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<title>Finance Tracker history of balance changes</title>
 
 </head>
 
 <body>
 
 	<div class="jumbotron text-center">
-		<h2>Finance Tracker Dashboard</h2>
+		<h1>Finance Tracker history of balance changes</h1>
 		<h3>Welcome <%= user.fullname %></h3><%= user.email %> <a href="/logout"> logout</a> 
 		<p><a href="/profile">Back to my profile</a></p>
 	</div>
 
 	<div class="container text-center">
+	<p>Balance changes by date, in chronological order, with the earliest amendment first.</p>
 		<div class="row">
 			<div class="col-sm-12">
 
-			<ul>
+			<ul style="list-style-type: none;">
     			<% user.history.forEach(function(userHistory) { %>
-        			<li><%= userHistory.currBal %> - <%= userHistory.timestamp %></li>
+        			<li style="border-bottom: 1px solid grey; border-top: 1px solid grey; padding:2px;">Balance updated on: <b><%= userHistory.timestamp.toGMTString() %></b> to the value of: <b>£<%= userHistory.currBal %></b></li>
     			<% }); %>
 			</ul>
 
@@ -35,9 +37,6 @@
 	<p><a href="/edit">Click here to change</a></p>
 
 	</div>
-
-
-
 	</div>
 </body>
 </html>

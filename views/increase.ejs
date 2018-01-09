@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title>Finance manager homepage</title>
+	<title>Finance Tracker increase balance</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
@@ -10,8 +10,8 @@
 <body>
 
 	<div class="jumbotron text-center">
-		<h1>Finance Tracker</h1>
-		<p>Keep track of your finances</p> 
+		<h1>Finance Tracker increase balance</h1>
+		<h3>Welcome <%= user.fullname %></h3><%= user.email %> <a href="/logout"> logout</a> 
 		<p><a href="/profile">Back to my profile</a></p>
 	</div>
 
@@ -37,11 +37,11 @@
 								</div>
 								<div class="row form-group input_group">	
 									<div class="col-sm-12">
-										<input type="submit" id="increase" class="form-control btn btn-primary" name="increase" value="Add to budget" onclick="addNumbers(), increaseConfirm()"/>
+										<input type="submit" id="increase" class="form-control btn btn-primary" name="increase" value="Add to balance" onclick="addNumbers(), increaseConfirm()"/>
 										<!-- <button type="submit">Submit</button> -->
 									</div>
 								</div>
-								<div class="row form-group input_group">
+								<div class="row form-group input_group" hidden="true">
 									<div class="col-sm-12">
 										Answer = <input type="number" id="newBalance" name="newBalance" class="form-control" value="£" step="0.01" disabled />
 									</div>

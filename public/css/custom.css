@@ -18,3 +18,8 @@
 	padding: 12px 21px 12px 21px;
 	border: 1px solid #efefef;
 }
+
+#ulStyle{
+list-style-type: none;
+}
+
