@@ -37,7 +37,7 @@
 								</div>
 								<div class="row form-group input_group">	
 									<div class="col-sm-12">
-										<input type="submit" id="increase" class="form-control btn btn-primary" name="increase" value="Add to budget" onclick="addNumbers()"/>
+										<input type="submit" id="increase" class="form-control btn btn-primary" name="increase" value="Add to budget" onclick="addNumbers(), increaseConfirm()"/>
 										<!-- <button type="submit">Submit</button> -->
 									</div>
 								</div>
@@ -61,6 +61,11 @@
 					var newBal = document.getElementById("newBalance");
 					newBal.value = val1 + val2;
 					return newBal;
+				}
+
+				function increaseConfirm() {
+				    var val = parseFloat(document.getElementById("value2").value);
+				    alert("Balance increased by: £" + val);
 				}
 			</script>
 

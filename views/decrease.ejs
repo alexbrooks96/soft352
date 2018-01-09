@@ -32,16 +32,15 @@
 								</div>
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
-										Decrease Value = <input type="number" id="value2" name="value2" class="form-control" placeholder="Increase value" step="0.01"  />
+										Decrease Value = <input type="number" id="value2" name="value2" class="form-control" placeholder="Decrease value" step="0.01"  />
 									</div>
 								</div>
 								<div class="row form-group input_group">	
 									<div class="col-sm-12">
-										<input type="submit" id="decrease" class="form-control btn btn-primary" name="decrease" value="Remove from budget" onclick="addNumbers()"/>
-										<!-- <button type="submit">Submit</button> -->
+										<input type="submit" id="decrease" class="form-control btn btn-primary" name="decrease" value="Remove from budget" onclick="addNumbers(), decreaseConfirm()"/>
 									</div>
 								</div>
-								<div class="row form-group input_group">
+								<div class="row form-group input_group" hidden="true">
 									<div class="col-sm-12">
 										Answer = <input type="number" id="newBalance" name="newBalance" class="form-control" value="£" step="0.01" disabled />
 									</div>
@@ -61,6 +60,11 @@
 					var newBal = document.getElementById("newBalance");
 					newBal.value = val1 - val2;
 					return newBal;
+				}
+
+				function decreaseConfirm() {
+				    var val = parseFloat(document.getElementById("value2").value);
+				    alert("Balance decreased by: £" + val);
 				}
 			</script>
 
