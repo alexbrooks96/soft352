@@ -51,7 +51,7 @@ router.get('/exisitingUser', function (req, res){
 	res.redirect('/login');
 });
 
-router.get('/increase', function (req, res, next){
+router.get('/increase', isLoggedIn, function (req, res, next){
 	console.log(req.user);
 	res.render('increase', {user: req.user});
 });
@@ -87,7 +87,7 @@ router.post('/increaseBal', function (req, res, next){
 });
 
 
-router.get('/decrease', function (req, res, next){
+router.get('/decrease', isLoggedIn, function (req, res, next){
 	console.log(req.user);
 	res.render('decrease', {user: req.user});
 });
@@ -128,7 +128,7 @@ router.post('/decreaseBal', function (req, res, next){
 	});
 });
 
-router.get('/edit', function (req, res, next){
+router.get('/edit', isLoggedIn, function (req, res, next){
 	console.log(req.user);
 	res.render('edit', {user: req.user});
 });
@@ -165,7 +165,7 @@ router.post('/editUser', function (req, res, next){
 	});
 });
 
-router.get('/history', function (req, res, next){
+router.get('/history', isLoggedIn, function (req, res, next){
 	console.log(req.user);
 	res.render('history', {user: req.user});
 });
