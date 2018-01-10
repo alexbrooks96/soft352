@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<title>Finance Tracker Income and outcome history</title>
+
+</head>
+
+<body>
+
+	<div class="jumbotron text-center">
+		<h1>Finance Tracker history of balance changes</h1>
+		<h3>Welcome <%= user.fullname %></h3><%= user.email %> <a href="/logout"> logout</a> 
+		<p><a href="/profile">Back to my profile</a></p>
+	</div>
+
+	<div class="container text-center">
+		<p>Balance changes by date, in chronological order, with the earliest amendment first.</p>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+						<p><b>Balance increase log</b></p>
+							<ul style="list-style-type: none;">
+								<% user.increaseArray.forEach(function(userincreaseArray) { %>
+								<li style="border-bottom: 1px solid grey; border-top: 1px solid grey; padding:2px;">Balance increased on: <b><%= userincreaseArray.timestamp.toGMTString() %></b> by the value of: <b>£<%= userincreaseArray.amountInc %></b> with the description of <b>"<%= userincreaseArray.description %>"</b></li>
+								<% }); %>
+							</ul>
+						</div>
+
+						<div class="col-sm-6">
+						<p><b>Balance decrease log</b></p>
+							<ul style="list-style-type: none;">
+								<% user.decreaseArray.forEach(function(userdecreaseArray) { %>
+								<li style="border-bottom: 1px solid grey; border-top: 1px solid grey; padding:2px;">Balance decreased on: <b><%= userdecreaseArray.timestamp.toGMTString() %></b> by the value of: <b>£<%= userdecreaseArray.amountDec %></b> with the description of <b>"<%= userdecreaseArray.description %>"</b></li>
+								<% }); %>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container text-center">
+		<p><a href="">View your balance history</a></p>
+	</div>
+	
+</div>
+</body>
+</html>
