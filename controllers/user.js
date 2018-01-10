@@ -170,6 +170,11 @@ router.get('/history', isLoggedIn, function (req, res, next){
 	res.render('history', {user: req.user});
 });
 
+router.get('/charts', isLoggedIn, function (req, res, next){
+	console.log(req.user);
+	res.render('charts', {user: req.user});
+});
+
 
 module.exports = router;
 
