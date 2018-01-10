@@ -4,21 +4,11 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 	<title>Finance Tracker Dashboard</title>
 </head>
 
-<style>
-#myProgress {
-  width: 100%;
-  background-color: #ddd;
-}
-
-#myBar {
-  width: 1%;
-  height: 30px;
-  background-color: #4CAF50;
-}
-</style>
 
 <body>
 
@@ -34,8 +24,8 @@
 				<h3 style="font-size: 12vw;" id="balance" data-toggle="tooltip" title="This is your current balance." hidden="true">£<%= user.balance%></h3>
 				<h3 style="font-size: 12vw;" id="target" data-toggle="tooltip" title="This is your current balance." hidden="true">£<%= user.target%></h3>
 
-				<div id="myBar"></div>
-				<button onclick="move()">Click Me</button> 
+				<div id="chart_div"></div>
+
 
 			</div>
 
@@ -50,24 +40,41 @@
 
 	</div>
 <script>
-	function move() {
-	  var elem = document.getElementById("myBar");
-	  var balance.value = parseFloat(document.getElementById("balance").value);
-	  var target.value = parseFloat(document.getElementById("target").value);
 
+<!--Load the AJAX API-->
 
-	  var width = 1;
-	  var id = setInterval(frame, target);
-	  function frame() {
-	    if (width >= balance) {
-	      clearInterval(id);
-	    } else {
-	      width++; 
-	      elem.style.width = width + '%'; 
-	    }
-	  }
-	}
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
 
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'How Much Pizza I Ate Last Night',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
 </script>
 </body>
 </html>

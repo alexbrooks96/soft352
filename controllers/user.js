@@ -60,6 +60,8 @@ router.post('/increaseBal', function (req, res, next){
 	var _id = req.body._id;
 	//var oldBal;
 	var newBal = parseFloat(req.body.value2);
+	var incAmount = newBal;
+	var incDesc = req.body.incDesc;
 
 	newBal = newBal + req.user.balance;
 
@@ -69,13 +71,20 @@ router.post('/increaseBal', function (req, res, next){
 		timestamp : new Date(),
 	}
 
+	var incArrEntry = {
+		amountInc : incAmount,
+		description : incDesc,
+		timestamp : new Date(),
+	}
+
 	User.updateOne(
 		{
 			"_id": _id 
 		}, 
 		{
 			$set: {'balance': newBal},
-			$push: {'history': historyEntry}
+			$push: {'history': historyEntry, 'increaseArray': incArrEntry},
+			//$push: {'incArr': incArrEntry},
 		},
 		function(err, result){
 		console.log('balance updated');
@@ -96,7 +105,8 @@ router.post('/decreaseBal', function (req, res, next){
 	var _id = req.body._id;
 	//var oldBal;
 	var newBal = parseFloat(req.body.value2);
-
+	var decAmount = newBal;
+	var decDesc = req.body.decDesc;
 
 	newBal = req.user.balance - newBal;
 
@@ -106,13 +116,19 @@ router.post('/decreaseBal', function (req, res, next){
 		timestamp : new Date(),
 	}
 
+	var decArrEntry = {
+		amountDec : decAmount,
+		description : decDesc,
+		timestamp : new Date(),
+	}
+
 	User.updateOne(
 		{
 			"_id": _id 
 		}, 
 		{
 			$set: {'balance': newBal},
-			$push: {'history': historyEntry}
+			$push: {'history': historyEntry, 'decreaseArray': decArrEntry},
 		},
 /*		{
 			$push: {<'history'>: 'currBal': newBal, 'timestamp': currDate},
@@ -174,6 +190,12 @@ router.get('/charts', isLoggedIn, function (req, res, next){
 	console.log(req.user);
 	res.render('charts', {user: req.user});
 });
+
+router.get('/inoutcome', isLoggedIn, function (req, res, next){
+	console.log(req.user);
+	res.render('inoutcome', {user: req.user});
+});
+
 
 
 module.exports = router;

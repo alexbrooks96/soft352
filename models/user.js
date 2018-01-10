@@ -12,7 +12,25 @@ var userSchema = mongoose.Schema({
 			currBal: Number,
 			timestamp: Date,
 		}
-	]
+	],
+	increaseArray: [
+		{
+			amountInc: Number,
+			description: String,
+			timestamp: Date,
+
+		}
+	],
+
+	decreaseArray: [
+		{
+			amountDec: Number,
+			description: String,
+			timestamp: Date,
+
+		}
+	],
+
 });
 
 userSchema.methods.encryptPassword = function(password){
