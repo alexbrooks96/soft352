@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+	<title>Finance Tracker Dashboard</title>
+</head>
+
+<style>
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+</style>
+
+<body>
+
+	<div class="jumbotron text-center">
+		<h1>Finance Tracker Dashboard</h1>
+		<h3>Welcome <%= user.fullname %></h3><%= user.email %> <a href="/logout"> logout</a> 
+	</div>
+
+	<div class="container text-center">
+		<div class="row">
+
+			<div class="col-sm-12" >
+				<h3 style="font-size: 12vw;" id="balance" data-toggle="tooltip" title="This is your current balance." hidden="true">£<%= user.balance%></h3>
+				<h3 style="font-size: 12vw;" id="target" data-toggle="tooltip" title="This is your current balance." hidden="true">£<%= user.target%></h3>
+
+				<div id="myBar"></div>
+				<button onclick="move()">Click Me</button> 
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container text-center">
+
+	<p>Your current target is: <%= user.target%></p>
+	<p><a href="/history">View your balance history</a></p>
+	<p><a href="/edit">Click here to change</a></p>
+
+	</div>
+<script>
+	function move() {
+	  var elem = document.getElementById("myBar");
+	  var balance.value = parseFloat(document.getElementById("balance").value);
+	  var target.value = parseFloat(document.getElementById("target").value);
+
+
+	  var width = 1;
+	  var id = setInterval(frame, target);
+	  function frame() {
+	    if (width >= balance) {
+	      clearInterval(id);
+	    } else {
+	      width++; 
+	      elem.style.width = width + '%'; 
+	    }
+	  }
+	}
+
+</script>
+</body>
+</html>
