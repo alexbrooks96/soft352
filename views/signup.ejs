@@ -33,13 +33,13 @@
 
 					<div class="row form-group input_group">
 						<div class="col-sm-12">
-							<input type="text" name="email" id="email" class="form-control" placeholder="Email" required>
+							<input type="text" name="email" id="email" class="form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter a valid email address" required>
 						</div>
 					</div>
 
 					<div class="row form-group input_group">
 						<div class="col-sm-12">
-							<input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+							<input type="password" name="password" id="password" class="form-control" placeholder="Password" pattern=".{6,}" title="Please ensure that your password is six or more characters" required>
 						</div>
 					</div>
 

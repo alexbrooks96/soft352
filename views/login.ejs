@@ -25,14 +25,14 @@
 		      	<div class="row form-group input_group">
 		      		<div class="col-sm-12">
 		      		<p style="color:red"><span><%= loginError %></span></p>
-		      			<input type="text" name="email" id="login_email" class="form-control" placeholder="Email">
+		      			<input type="text" name="email" id="login_email" class="form-control" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter a valid email address" required>
 		      		</div>
 		      	</div>
 
 		      	<div class="row form-group input_group">
 		      		<div class="col-sm-12">
 		      		<p style="color:red"><span><%= passwordError %></span></p>
-		      			<input type="password" name="password" id="password" class="form-control" placeholder="password">
+		      			<input type="password" name="password" id="password" class="form-control" placeholder="password" required>
 		      		</div>
 		      	</div>
 

@@ -32,7 +32,7 @@
 								</div>
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
-										Value to add to balance <input type="number" id="value2" name="value2" class="form-control" placeholder="Increase value" step="0.01"  />
+										Value to add to balance <input type="number" id="value2" name="value2" class="form-control" placeholder="Increase value" step="0.01" pattern="(\d{3})([\.])(\d{2})" required/>
 									</div>
 								</div>
 								<div class="row form-group input_group">
@@ -96,16 +96,11 @@
 					newBal.value = val1 + val2;
 					return newBal;
 				}
-				function validateForm() {
-				    var fullnameEmpty = document.forms["signUpForm"]["fullname"].value;
-
-
-
-				    if (fullnameEmpty == "") {
-				        alert("Name must be filled out");
-				        return false;
-				    }
+				function increaseConfirm() {
+				    var val = parseFloat(document.getElementById("value2").value);
+				    alert("Balance increased by: £" + val);
 				}
+
 
 				function calcNumbers(){
 					var calc1 = parseFloat(document.getElementById("calc1").value);
