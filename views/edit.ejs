@@ -23,30 +23,30 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6">
-						<form action="/editUser" method="post">
+						<form name="editUser" action="/editUser" method="post">
 						<input type="hidden" name="_id" value="<%= user._id %>">
 
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
-										Name <input type="text" id="fullname" class="form-control" name="fullname" value="<%= user.fullname %>"/>
+										Name <input type="text" id="fullname" class="form-control" name="fullname" value="<%= user.fullname %> " required/>
 									</div>
 								</div>
 
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
-										Email <input type="text" id="email" class="form-control" name="email" value="<%= user.email %>"/>
+										Email <input type="text" id="email" class="form-control" name="email" value="<%= user.email %>" required/>
 									</div>
 								</div>
 
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
-										Target <input type="number" id="target" class="form-control" name="target" value="<%= user.target %>" step="0.01"/>
+										Target <input type="number" id="target" class="form-control" name="target" value="<%= user.target %>" step="0.01" required/>
 									</div>
 								</div>
 
 								<div class="row form-group input_group">	
 									<div class="col-sm-12">
-										<input type="submit" id="edit" class="form-control btn btn-primary" name="edit" value="Save changes"/>
+										<input type="submit" id="edit" onclick="validateEmail(), editConfirm()" class="form-control btn btn-primary" name="edit" value="Save changes"/>
 
 									</div>
 								</div>
@@ -58,9 +58,23 @@
 			</div>
 		</div>
 	</div>
-</div>
 
+<script>
+	function validateEmail() {
+	    var x = document.forms["editUser"]["email"].value;
+	    var atpos = x.indexOf("@");
+	    var dotpos = x.lastIndexOf(".");
+	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+	        alert("Not a valid e-mail address");
+	        return false;
+	    }
+	}
 
+	function editConfirm() {
+	    var name = document.getElementById("fullname").value;
+	    alert("Successfully update profile for " + name);
+	}
+</script>
 
 </body>
 

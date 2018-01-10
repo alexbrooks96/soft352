@@ -27,31 +27,31 @@
 
 					<div class="row form-group input_group">
 						<div class="col-sm-12">
-							<input type="text" name="name" id="fullname" class="form-control" placeholder="Full name">
+							<input type="text" name="name" id="fullname" class="form-control" placeholder="Full name" required> 
 						</div>
 					</div>
 
 					<div class="row form-group input_group">
 						<div class="col-sm-12">
-							<input type="text" name="email" id="email" class="form-control" placeholder="Email">
+							<input type="text" name="email" id="email" class="form-control" placeholder="Email" required>
 						</div>
 					</div>
 
 					<div class="row form-group input_group">
 						<div class="col-sm-12">
-							<input type="password" name="password" id="password" class="form-control" placeholder="Password">
+							<input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
 						</div>
 					</div>
 
 					<div class="row form-group input_group">
 						<div class="col-sm-12">
-							<input type="text" name="balance" id="balance" class="form-control" placeholder="Balance">
+							<input type="text" name="balance" id="balance" class="form-control" placeholder="Balance" required>
 						</div>
 					</div>
 
 					<div class="row form-group input_group">
 						<div class="col-sm-12">
-							<input type="text" name="target" id="target" class="form-control" placeholder="Target">
+							<input type="text" name="target" id="target" class="form-control" placeholder="Target" required>
 						</div>
 					</div>
 
@@ -73,5 +73,16 @@
 
 	<script src="https://cdjns.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://cdjns.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+	function validateEmail() {
+	    var x = document.forms["signUpForm"]["email"].value;
+	    var atpos = x.indexOf("@");
+	    var dotpos = x.lastIndexOf(".");
+	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+	        alert("Not a valid e-mail address");
+	        return false;
+	    }
+	}
+	</script>
 </body>
 </html>

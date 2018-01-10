@@ -61,30 +61,19 @@
 							Increase Value 1 = <input type="number" id="calc1" name="calc1" class="form-control" placeholder="Increase value" value=0 step="0.01"  />
 						</div>
 					</div>
-					<!-- <div class="row form-group input_group">
-						<div class="col-sm-12">
-							Increase Value 2 = <input type="number" id="calc2" name="calc2" class="form-control" placeholder="Increase value" value=0 step="0.01"  />
-						</div>
-					</div>
-					<div class="row form-group input_group">
-						<div class="col-sm-12">
-							Increase Value 3 = <input type="number" id="calc3" name="calc3" class="form-control" placeholder="Increase value" value=0 step="0.01"  />
-						</div>
-					</div>
-					<div class="row form-group input_group">
-						<div class="col-sm-12">
-							Increase Value 4 = <input type="number" id="calc4" name="calc4" class="form-control" placeholder="Increase value" value=0 step="0.01"  />
-						</div>
-					</div> -->
 					<div class="row form-group input_group">	
 						<div class="col-sm-12">
 							<input type="submit" id="calcSumBtn" class="form-control btn btn-primary" name="calcSum" value="Calculate totals" onclick="calcNumbers()"/>
-							<!-- <button type="submit">Submit</button> -->
 						</div>
 					</div>
 					<div class="row form-group input_group">
 						<div class="col-sm-12">
 							Total Calculated = £<input type="number" id="calcSum" name="calcSum" class="form-control" value="0" step="0.01" disabled />
+						</div>
+					</div>
+					<div class="row form-group input_group">
+						<div class="col-sm-12">
+						<input type="reset" class="form-control btn btn-primary">
 						</div>
 					</div>
 				</form>
@@ -111,25 +100,12 @@
 
 				function calcNumbers(){
 					var calc1 = parseFloat(document.getElementById("calc1").value);
-/*					var calc2 = parseFloat(document.getElementById("calc2").value);
-					var calc3 = parseFloat(document.getElementById("calc3").value);
-					var calc4 = parseFloat(document.getElementById("calc4").value);*/
 					var calcSum = document.getElementById("calcSum");
 					var tempAns = parseFloat(document.getElementById("calcSum").value);
 
-					//calcSum.value = calcSum.value -calc1;
 					calcSum.value = tempAns - calc1;
-/*					calcSum.value = calcSum.value -calc2;
-					calcSum.value = calcSum.value -calc3;
-					calcSum.value = calcSum.value -calc4; */
-
 					return calcSum;
 				}
 			</script>
-
-
-
 </body>
-
-
 </html>
