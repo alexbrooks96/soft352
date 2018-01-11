@@ -1,3 +1,4 @@
+//required dependencies
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -11,7 +12,7 @@ var flash = require('express-flash');
 
 var app = express();
 
-
+//db connection
 mongoose.connect('mongodb://localhost/mongofm');
 
 var user = require('./controllers/user');

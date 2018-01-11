@@ -19,7 +19,7 @@
 	<p>Balance changes by date, in chronological order, with the earliest amendment first. To view a report of income/outcome spending please click <a href="/inoutcome">here</a></p>
 		<div class="row">
 			<div class="col-sm-12">
-
+			<!-- Displays all of the items from the history array-->
 			<ul style="list-style-type: none;">
     			<% user.history.forEach(function(userHistory) { %>
         			<li style="border-bottom: 1px solid grey; border-top: 1px solid grey; padding:2px;">Balance updated on: <b><%= userHistory.timestamp.toGMTString() %></b> to the value of: <b>£<%= userHistory.currBal %></b></li>
@@ -33,9 +33,7 @@
 	<div class="container text-center">
 
 	<p>Your current target is: <%= user.target%></p>
-	<p><a href="">View your balance history</a></p>
-	<p><a href="/edit">Click here to change</a></p>
-
+	<p><a href="/inoutcome">Income/outcome report</a></p>
 	</div>
 	</div>
 </body>

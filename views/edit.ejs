@@ -34,7 +34,7 @@
 
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
-										Email <input type="text" id="email" class="form-control" name="email" value="<%= user.email %>" required/>
+										Email <input type="text" id="email" class="form-control" name="email" value="<%= user.email %>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter a valid email address" required/>
 									</div>
 								</div>
 
@@ -46,7 +46,7 @@
 
 								<div class="row form-group input_group">	
 									<div class="col-sm-12">
-										<input type="submit" id="edit" onclick="validateEmail(), editConfirm()" class="form-control btn btn-primary" name="edit" value="Save changes"/>
+										<input type="submit" id="edit" class="form-control btn btn-primary" name="edit" value="Save changes"/>
 
 									</div>
 								</div>
@@ -60,16 +60,7 @@
 	</div>
 
 <script>
-	function validateEmail() {
-	    var x = document.forms["editUser"]["email"].value;
-	    var atpos = x.indexOf("@");
-	    var dotpos = x.lastIndexOf(".");
-	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-	        alert("Not a valid e-mail address");
-	        return false;
-	    }
-	}
-
+	//alerts user that the edits have been successful
 	function editConfirm() {
 	    var name = document.getElementById("fullname").value;
 	    alert("Successfully update profile for " + name);

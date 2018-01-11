@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-<title>Finance Tracker decrease balance</title>
+	<title>Finance Tracker decrease balance</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
@@ -22,9 +22,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6">
-						<p>Decrease your balance here</p>
-						<form action="/decreaseBal" method="post">
-						<input type="hidden" name="_id" value="<%= user._id %>">
+							<p>Decrease your balance here</p>
+							<form action="/decreaseBal" method="post">
+								<input type="hidden" name="_id" value="<%= user._id %>">
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
 										Current Balance = <input type="number" id="value1" class="form-control" name="value1" value="<%= user.balance %>" step="0.01"  disabled/>
@@ -32,12 +32,12 @@
 								</div>
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
-										Decrease Value = <input type="number" id="value2" name="value2" class="form-control" placeholder="Decrease value" step="0.01"  required="true" />
+										Decrease Value = <input type="number" id="value2" name="value2" class="form-control" placeholder="Decrease value" step="0.01"  required />
 									</div>
 								</div>
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
-										Description of decrease <input type="string" id="decDesc" name="decDesc" class="form-control" placeholder="Decrease Description" />
+										Description of decrease <input type="string" id="decDesc" name="decDesc" class="form-control" placeholder="Decrease Description" required/>
 									</div>
 								</div>
 								<div class="row form-group input_group">	
@@ -52,43 +52,39 @@
 								</div>
 							</form>
 						</div>
-					
-				
-			
 
-
-			<div class="col-sm-6">
-			<p>Calculator to help you with bulk increases</p>
-			<form action="/increaseBal" method="post">
-			<input type="hidden" name="_id" value="<%= user._id %>">
-					<div class="row form-group input_group">
-						<div class="col-sm-12">
-							Increase Value 1 = <input type="number" id="calc1" name="calc1" class="form-control" placeholder="Increase value" value=0 step="0.01"  />
+						<div class="col-sm-6">
+							<p>Calculator to help you with bulk increases</p>
+							<form action="/increaseBal" method="post">
+								<input type="hidden" name="_id" value="<%= user._id %>">
+								<div class="row form-group input_group">
+									<div class="col-sm-12">
+										Increase Value 1 = <input type="number" id="calc1" name="calc1" class="form-control" placeholder="Increase value" value=0 step="0.01"  />
+									</div>
+								</div>
+								<div class="row form-group input_group">	
+									<div class="col-sm-12">
+										<input type="" id="calcSumBtn" class="form-control btn btn-primary" name="calcSum" value="Calculate totals" onclick="calcNumbers()"/>
+									</div>
+								</div>
+								<div class="row form-group input_group">
+									<div class="col-sm-12">
+										Total Calculated = £<input type="number" id="calcSum" name="calcSum" class="form-control" value="0" step="0.01" disabled />
+									</div>
+								</div>
+								<div class="row form-group input_group">
+									<div class="col-sm-12">
+										<input type="reset" class="form-control btn btn-primary">
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
-					<div class="row form-group input_group">	
-						<div class="col-sm-12">
-							<input type="submit" id="calcSumBtn" class="form-control btn btn-primary" name="calcSum" value="Calculate totals" onclick="calcNumbers()"/>
-						</div>
-					</div>
-					<div class="row form-group input_group">
-						<div class="col-sm-12">
-							Total Calculated = £<input type="number" id="calcSum" name="calcSum" class="form-control" value="0" step="0.01" disabled />
-						</div>
-					</div>
-					<div class="row form-group input_group">
-						<div class="col-sm-12">
-						<input type="reset" class="form-control btn btn-primary">
-						</div>
-					</div>
-				</form>
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
 
 			<script>
-
+				//function to decrease the intitial balance with by value in val 2. Returns and used to update the balance
 				function addNumbers()
 				{
 					var val1 = parseFloat(document.getElementById("value1").value);
@@ -98,11 +94,13 @@
 					return newBal;
 				}
 
+				//function to display an alert box with the amount decreased by.
 				function decreaseConfirm() {
-				    var val = parseFloat(document.getElementById("value2").value);
-				    alert("Balance decreased by: £" + val);
+					var val = parseFloat(document.getElementById("value2").value);
+					alert("Balance decreased by: £" + val);
 				}
 
+				//function to operate the calculator
 				function calcNumbers(){
 					var calc1 = parseFloat(document.getElementById("calc1").value);
 					var calcSum = document.getElementById("calcSum");
@@ -112,5 +110,5 @@
 					return calcSum;
 				}
 			</script>
-</body>
-</html>
+		</body>
+		</html>

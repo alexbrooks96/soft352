@@ -22,9 +22,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6">
-						<p>Increase your balance here</p>
-						<form action="/increaseBal" method="post">
-						<input type="hidden" name="_id" value="<%= user._id %>">
+							<p>Increase your balance here</p>
+							<form action="/increaseBal" method="post">
+								<input type="hidden" name="_id" value="<%= user._id %>">
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
 										Current Balance = <input type="number" id="value1" class="form-control" name="value1" value="<%= user.balance %>" step="0.01"  disabled/>
@@ -43,7 +43,7 @@
 								<div class="row form-group input_group">	
 									<div class="col-sm-12">
 										<input type="submit" id="increase" class="form-control btn btn-primary" name="increase" value="Add to balance" onclick="addNumbers(), increaseConfirm()"/>
-										<!-- <button type="submit">Submit</button> -->
+
 									</div>
 								</div>
 								<div class="row form-group input_group" hidden="true">
@@ -56,9 +56,9 @@
 
 
 						<div class="col-sm-6">
-						<p>Calculator to help you with bulk increases</p>
-						<form action="/increaseBal" method="post">
-						<input type="hidden" name="_id" value="<%= user._id %>">
+							<p>Calculator to help you with bulk increases</p>
+							<form action="/increaseBal" method="post">
+								<input type="hidden" name="_id" value="<%= user._id %>">
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
 										Increase Value 1 = <input type="number" id="calc1" name="calc1" class="form-control" placeholder="Increase value" value=0 step="0.01"  />
@@ -76,7 +76,7 @@
 								</div>
 								<div class="row form-group input_group">
 									<div class="col-sm-12">
-									<input type="reset" class="form-control btn btn-primary">
+										<input type="reset" class="form-control btn btn-primary">
 									</div>
 								</div>
 							</form>
@@ -87,7 +87,7 @@
 			</div>
 
 			<script>
-
+			//Function to add the current balance with the new value inputted.
 				function addNumbers()
 				{
 					var val1 = parseFloat(document.getElementById("value1").value);
@@ -96,12 +96,14 @@
 					newBal.value = val1 + val2;
 					return newBal;
 				}
+
+				//confirms that the increase value has been added to the balance
 				function increaseConfirm() {
-				    var val = parseFloat(document.getElementById("value2").value);
-				    alert("Balance increased by: £" + val);
+					var val = parseFloat(document.getElementById("value2").value);
+					alert("Balance increased by: £" + val);
 				}
 
-
+				//function to operate the calculator
 				function calcNumbers(){
 					var calc1 = parseFloat(document.getElementById("calc1").value);
 					var calcSum = document.getElementById("calcSum");
@@ -112,15 +114,9 @@
 					return calcSum;
 				}
 			</script>
-
-
-
 		</div>
 	</div>
 </div>
-
-
-
 </body>
 
 

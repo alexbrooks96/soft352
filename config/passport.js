@@ -3,15 +3,23 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
 
+
+//For storing the user data in the session
 passport.serializeUser(function(user, done){
 	done(null, user.id);
 });
 
+
+//For removing user data in the session
 passport.deserializeUser(function(id, done){
 	User.findById(id, function(err, user){
 		done(err, user);
 	});
 });
+
+
+//Using passport to sign a user up for an account. Firstly checks to see if the user already exists (by email)
+//If it is a unique email address, the other fields on the form are used to populate the userSchema, then save.
 
 passport.use('local.signup', new LocalStrategy({
 	usernameField: 'email',
@@ -46,7 +54,8 @@ passport.use('local.signup', new LocalStrategy({
 }));
 
 
-//login
+//Using passport to log a user into the system. Checks whether the username, in this case the email address exists.
+//Followed by checking that the password matches the password assigned to the user account based on the username/email address.
 
 passport.use('local.login', new LocalStrategy({
 	usernameField: 'email',
